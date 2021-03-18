@@ -1,16 +1,16 @@
 package br.com.mariojp.colecoes.usuarios.model;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
-
-public class Usuario {
+/**
+ * MVC - M
+ * MODEL
+ * - ANEMICO (X)
+ * - RICO ( )
+ * @author mariojp
+ *
+ */
+public class Usuario implements Comparable<Usuario>{
 	
-	// Usuario[] usuarios = new Usuario[100];
-	// Map<String,Usuario> usuarios = new HashMap<String,Usuario>();
-	private static List<Usuario> usuarios = new ArrayList<Usuario>();
+
 	
 	private String nome;
 	private String email; // index
@@ -76,14 +76,8 @@ public class Usuario {
 		this.perfil = perfil;
 	}
 	
-	public void salvar() {
-		usuarios.add(this);
-		
-		for (Usuario usuario : usuarios) {
-			System.out.println(usuario);
-		}
 
-	}
+
 	
 	
 	@Override
@@ -100,11 +94,13 @@ public class Usuario {
 		builder.append("]");
 		return builder.toString();
 	}
+
+	@Override
+	public int compareTo(Usuario o) {
+		return this.getEmail().compareTo(o.getEmail());
+	}
 	
-//	public static void adicionaUsuario(Usuario usuario) {
-//		usuarios.add(usuario);
-//	}
-	
+
 	
 	
 }
